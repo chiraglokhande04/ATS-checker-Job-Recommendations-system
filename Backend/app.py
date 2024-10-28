@@ -158,25 +158,16 @@ def analyze_resume():
         if resume_file.filename == '':
             return jsonify({"error": "No selected file"}), 400
 
-        save_dir = './tmp'
-        # if not os.path.exists(save_dir):
-        #     os.makedirs(save_dir)
-
-        # save_path = os.path.join(save_dir, resume_file.filename)
-        # resume_file.save(save_path)
-        try:
-          if not os.path.exists(save_dir):
-            os.makedirs(save_dir)
-        except OSError as e:
-           print(f"Error creating directory '{save_dir}': {e}")
-
+        save_dir = '/tmp'
         save_path = os.path.join(save_dir, resume_file.filename)
-        
+
+        # Save the resume file
         try:
-          resume_file.save(save_path)
-          print(f"Resume saved successfully at: {save_path}")
+            resume_file.save(save_path)
+            print(f"Resume saved successfully at: {save_path}")
         except Exception as e:
-           print(f"Error saving resume file: {e}")
+            print(f"Error saving resume file: {e}")
+            return jsonify({"error": "Could not save the resume file"}), 500
 
         resume_text = extract_text_from_pdf(save_path)
         resume_data = extract_resume_data(resume_text)
