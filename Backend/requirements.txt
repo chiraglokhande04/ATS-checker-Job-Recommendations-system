@@ -1,15 +1,6 @@
-
-# pyresparser
-# streamlit
-pandas
-# pafy
-# plotly
-# streamlit-tags
-# Pillow
-# youtube-dl
-nltk
 flask
-# pickle
+flask_cors
+pandas
 datetime
 PyPDF2
 flask_cors
