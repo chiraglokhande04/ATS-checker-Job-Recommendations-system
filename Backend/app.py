@@ -158,7 +158,7 @@ def analyze_resume():
         if resume_file.filename == '':
             return jsonify({"error": "No selected file"}), 400
 
-        save_dir = './Uploaded_Resumes'
+        save_dir = './tmp'
         # if not os.path.exists(save_dir):
         #     os.makedirs(save_dir)
 
