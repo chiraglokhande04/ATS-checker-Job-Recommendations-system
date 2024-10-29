@@ -86,7 +86,7 @@ const SearchBar = ({ placeholder, onSearchResults }) => {
       } catch (error) {
         console.error("Error fetching job recommendations:", error);
         onSearchResults([]);
-        setError("Error fetching recommendations.");
+        //setError("Error fetching recommendations.");
       } finally {
         setLoading(false); // Reset loading state
       }
